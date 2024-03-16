@@ -6,7 +6,7 @@
 /*   By: anikoyan <anikoyan@student.42yerevan.am>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 20:15:02 by anikoyan          #+#    #+#             */
-/*   Updated: 2024/03/16 21:09:29 by anikoyan         ###   ########.fr       */
+/*   Updated: 2024/03/16 21:29:34 by anikoyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,12 +72,9 @@ char	*ft_get_line(char *buffer)
 		return (NULL);
 	while (buffer[i] && buffer[i] != '\n')
 		i++;
-	if (buffer[i] == '\n')
-		i++;
-	line = malloc(sizeof(char) * (i + 1));
+	line = malloc(sizeof(char) * (i + 2));
 	if (!line)
 		return (NULL);
-	line[i] = '\0';
 	i = 0;
 	while (buffer[i] && buffer[i] != '\n')
 	{
@@ -85,7 +82,11 @@ char	*ft_get_line(char *buffer)
 		i++;
 	}
 	if (buffer[i] == '\n')
+	{
 		line[i] = buffer[i];
+		i++;
+	}
+	line[i] = '\0';
 	return (line);
 }
 
