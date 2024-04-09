@@ -6,7 +6,7 @@
 /*   By: anikoyan <anikoyan@student.42yerevan.am>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 16:50:48 by anikoyan          #+#    #+#             */
-/*   Updated: 2024/03/16 20:50:59 by anikoyan         ###   ########.fr       */
+/*   Updated: 2024/04/09 19:06:36 by anikoyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	if (!s)
-		return (NULL);
 	while (*s)
 	{
 		if (*s == (unsigned char)c)

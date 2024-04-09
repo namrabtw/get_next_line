@@ -6,7 +6,7 @@
 /*   By: anikoyan <anikoyan@student.42yerevan.am>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 20:15:02 by anikoyan          #+#    #+#             */
-/*   Updated: 2024/03/16 21:29:02 by anikoyan         ###   ########.fr       */
+/*   Updated: 2024/04/09 19:17:39 by anikoyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,14 @@ char	*ft_read_fd(int fd, char *buffer)
 	if (!tmp)
 		return (NULL);
 	bytes_read = 1;
-	while (!ft_strchr(buffer, '\n') && bytes_read)
+	while ((!buffer || !ft_strchr(buffer, '\n')) && bytes_read)
 	{
 		ptr_buffer = buffer;
 		bytes_read = read(fd, tmp, BUFFER_SIZE);
 		if (bytes_read == -1)
 		{
 			free(tmp);
+			free(buffer);
 			return (NULL);
 		}
 		tmp[bytes_read] = '\0';
